@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfa95e27-34b5-4a20-9235-ec651c0bc4ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/box.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/box.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/新建文件夹/数据库实验7：(Project).doc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/highscore.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/推箱子2018111913.py" beforeDir="false" afterPath="$PROJECT_DIR$/推箱子2018111913.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +106,7 @@
       <updated>1573556180105</updated>
       <workItem from="1573556187164" duration="1664000" />
       <workItem from="1573561103359" duration="302000" />
+      <workItem from="1573561827123" duration="1083000" />
     </task>
     <servers />
   </component>
@@ -120,7 +118,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
