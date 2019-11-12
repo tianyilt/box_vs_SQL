@@ -81,8 +81,8 @@ def lay_obs():
             x_obs[i]=x_obstacle
             y_obs[i]=y_obstacle
             i=i+1
-    print("x_obs=",x_obs)
-    print("y_obs=",y_obs)
+    #print("x_obs=",x_obs)
+    #print("y_obs=",y_obs)
 #随机生成目标点
 def lay_ter():
     while 1:
@@ -98,7 +98,7 @@ def lay_ter():
             ter_lo[0]=tx
             ter_lo[1]=ty
             break
-    print ("terminate=",ter_lo)
+    #print ("terminate=",ter_lo)
 #随机生成箱子坐标
 def lay_box():
     while 1:
@@ -116,7 +116,7 @@ def lay_box():
             box_lo[0]=bx
             box_lo[1]=by
             break
-    print("box_start=",box_lo)
+    #print("box_start=",box_lo)
 #随机生成起点坐标
 def lay_sta():
     while 1:
@@ -136,7 +136,7 @@ def lay_sta():
             host_lo[0]=hx
             host_lo[1]=hy
             break
-    print("host_start=",host_lo)
+    #print("host_start=",host_lo)
 #安置各个色块
 def start_game():
     lay_obs()
@@ -176,28 +176,28 @@ def move_up():
     erased(host_lo[0],host_lo[1])
     host(host_lo[0],host_lo[1]-1)
     host_lo[1]=host_lo[1]-1
-    print("host=",host_lo)
+    #print("host=",host_lo)
 def move_down():
     if host_lo[1]==9:
         return
     erased(host_lo[0],host_lo[1])
     host(host_lo[0],host_lo[1]+1)
     host_lo[1]=host_lo[1]+1
-    print("host=",host_lo)
+    #print("host=",host_lo)
 def move_left():
     if host_lo[0]==1:
         return
     erased(host_lo[0],host_lo[1])
     host(host_lo[0]-1,host_lo[1])
     host_lo[0]=host_lo[0]-1
-    print("host=",host_lo)
+   # print("host=",host_lo)
 def move_right():
     if host_lo[0]==9:
         return
     erased(host_lo[0],host_lo[1])
     host(host_lo[0]+1,host_lo[1])
     host_lo[0]=host_lo[0]+1
-    print("host=",host_lo)
+    #print("host=",host_lo)
 #四个box移动函数
 def box_up():
     if box_lo[1]==1:
@@ -205,28 +205,28 @@ def box_up():
     erased(box_lo[0],box_lo[1])
     box(box_lo[0],box_lo[1]-1)
     box_lo[1]=box_lo[1]-1
-    print("box=",box_lo)
+   # print("box=",box_lo)
 def box_down():
     if box_lo[1]==9:
         return
     erased(box_lo[0],box_lo[1])
     box(box_lo[0],box_lo[1]+1)
     box_lo[1]=box_lo[1]+1
-    print("box=",box_lo)
+    #print("box=",box_lo)
 def box_left():
     if box_lo[0]==1:
         return
     erased(box_lo[0],box_lo[1])
     box(box_lo[0]-1,box_lo[1])
     box_lo[0]=box_lo[0]-1
-    print("box=",box_lo)
+   # print("box=",box_lo)
 def box_right():
     if box_lo[0]==9:
         return
     erased(box_lo[0],box_lo[1])
     box(box_lo[0]+1,box_lo[1])
     box_lo[0]=box_lo[0]+1
-    print("box=",box_lo)
+  #  print("box=",box_lo)
 #四个推箱子函数
 def push_up():
     p=0
