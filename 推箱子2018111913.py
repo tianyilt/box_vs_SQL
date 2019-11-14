@@ -28,11 +28,11 @@ label_1.pack()
 label_2= Label(x,text="High score:%d" %score[1],font="10",width=40,height=1,fg="black")
 label_2.pack()
 #贴图
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/brick.gif'))
+box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/box.gif'))
+ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/terminate.gif'))
+obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/wall.gif'))
+host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/host.gif'))
+bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/brick.gif'))
 #初始化背景
 for i in range(0,11):
     for j in range(0,11):
