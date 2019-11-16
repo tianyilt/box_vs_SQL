@@ -28,11 +28,11 @@ label_1.pack()
 label_2= Label(x,text="High score:%d" %score[1],font="10",width=40,height=1,fg="black")
 label_2.pack()
 #贴图
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/brick.gif'))
+box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/box.gif'))
+ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/terminate.gif'))
+obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/wall.gif'))
+host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/host.gif'))
+bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/brick.gif'))
 #初始化背景
 for i in range(0,11):
     for j in range(0,11):
@@ -81,8 +81,8 @@ def lay_obs():
             x_obs[i]=x_obstacle
             y_obs[i]=y_obstacle
             i=i+1
-    print("x_obs=",x_obs)
-    print("y_obs=",y_obs)
+    #print("x_obs=",x_obs)
+    #print("y_obs=",y_obs)
 #随机生成目标点
 def lay_ter():
     while 1:
@@ -98,7 +98,7 @@ def lay_ter():
             ter_lo[0]=tx
             ter_lo[1]=ty
             break
-    print ("terminate=",ter_lo)
+    #print ("terminate=",ter_lo)
 #随机生成箱子坐标
 def lay_box():
     while 1:
@@ -116,7 +116,7 @@ def lay_box():
             box_lo[0]=bx
             box_lo[1]=by
             break
-    print("box_start=",box_lo)
+    #print("box_start=",box_lo)
 #随机生成起点坐标
 def lay_sta():
     while 1:
@@ -136,7 +136,7 @@ def lay_sta():
             host_lo[0]=hx
             host_lo[1]=hy
             break
-    print("host_start=",host_lo)
+    #print("host_start=",host_lo)
 #安置各个色块
 def start_game():
     lay_obs()
@@ -176,28 +176,28 @@ def move_up():
     erased(host_lo[0],host_lo[1])
     host(host_lo[0],host_lo[1]-1)
     host_lo[1]=host_lo[1]-1
-    print("host=",host_lo)
+    #print("host=",host_lo)
 def move_down():
     if host_lo[1]==9:
         return
     erased(host_lo[0],host_lo[1])
     host(host_lo[0],host_lo[1]+1)
     host_lo[1]=host_lo[1]+1
-    print("host=",host_lo)
+    #print("host=",host_lo)
 def move_left():
     if host_lo[0]==1:
         return
     erased(host_lo[0],host_lo[1])
     host(host_lo[0]-1,host_lo[1])
     host_lo[0]=host_lo[0]-1
-    print("host=",host_lo)
+   # print("host=",host_lo)
 def move_right():
     if host_lo[0]==9:
         return
     erased(host_lo[0],host_lo[1])
     host(host_lo[0]+1,host_lo[1])
     host_lo[0]=host_lo[0]+1
-    print("host=",host_lo)
+    #print("host=",host_lo)
 #四个box移动函数
 def box_up():
     if box_lo[1]==1:
@@ -205,28 +205,28 @@ def box_up():
     erased(box_lo[0],box_lo[1])
     box(box_lo[0],box_lo[1]-1)
     box_lo[1]=box_lo[1]-1
-    print("box=",box_lo)
+   # print("box=",box_lo)
 def box_down():
     if box_lo[1]==9:
         return
     erased(box_lo[0],box_lo[1])
     box(box_lo[0],box_lo[1]+1)
     box_lo[1]=box_lo[1]+1
-    print("box=",box_lo)
+    #print("box=",box_lo)
 def box_left():
     if box_lo[0]==1:
         return
     erased(box_lo[0],box_lo[1])
     box(box_lo[0]-1,box_lo[1])
     box_lo[0]=box_lo[0]-1
-    print("box=",box_lo)
+   # print("box=",box_lo)
 def box_right():
     if box_lo[0]==9:
         return
     erased(box_lo[0],box_lo[1])
     box(box_lo[0]+1,box_lo[1])
     box_lo[0]=box_lo[0]+1
-    print("box=",box_lo)
+  #  print("box=",box_lo)
 #四个推箱子函数
 def push_up():
     p=0
