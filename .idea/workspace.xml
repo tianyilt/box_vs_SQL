@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfa95e27-34b5-4a20-9235-ec651c0bc4ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/box.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/box.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/highscore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saves/highscore.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/textures/box.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/textures/brick.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/textures/contents.obv" beforeDir="false" />
@@ -123,7 +121,6 @@
       <workItem from="1573561827123" duration="1083000" />
       <workItem from="1573696538864" duration="546000" />
       <workItem from="1573698730915" duration="549000" />
-      <workItem from="1573725169012" duration="599000" />
     </task>
     <servers />
   </component>
@@ -144,8 +141,8 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/box$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1573557022446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/box$2018111913.coverage" NAME="推箱子2018111913 Coverage Results" MODIFIED="1573557653123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/box$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1573557022446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/box_vs_SQL$2018111913.coverage" NAME="推箱子2018111913 Coverage Results" MODIFIED="1573699149116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
