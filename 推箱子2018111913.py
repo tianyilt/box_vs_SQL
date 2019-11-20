@@ -28,11 +28,41 @@ label_1.pack()
 label_2= Label(x,text="High score:%d" %score[1],font="10",width=40,height=1,fg="black")
 label_2.pack()
 #贴图
+box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/box.gif'))
+ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/terminate.gif'))
+obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/wall.gif'))
+host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/host.gif'))
+bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/brick.gif'))
+
+box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/box.gif'))
+ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/terminate.gif'))
+obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/wall.gif'))
+host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/host.gif'))
+bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/brick.gif'))
+
+box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/box.gif'))
+ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/terminate.gif'))
+obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/wall.gif'))
+host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/host.gif'))
+bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/brick.gif'))
+
 box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/box.gif'))
 ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/terminate.gif'))
 obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/wall.gif'))
 host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/host.gif'))
 bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/brick.gif'))
+
+box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/box.gif'))
+ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/terminate.gif'))
+obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/wall.gif'))
+host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/host.gif'))
+bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/brick.gif'))
+
+box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/box.gif'))
+ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/terminate.gif'))
+obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/wall.gif'))
+host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/host.gif'))
+bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/brick.gif'))
 #初始化背景
 for i in range(0,11):
     for j in range(0,11):
