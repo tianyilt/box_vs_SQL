@@ -16,7 +16,7 @@ current_mode = [""]
 from tkinter import *
 import random
 from tkinter.messagebox import *
-import configparser
+
 x=Tk()
 x.title("game")
 x.geometry("350x420")
