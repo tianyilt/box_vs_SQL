@@ -5,18 +5,18 @@ ter_lo=[0,0]
 x_obs=[0,0,0,0,0,0,0,0,0,0]
 y_obs=[0,0,0,0,0,0,0,0,0,0]
 score=[0,0]
+current_theme = 0
 #获取历史最高分
 import os
+from tkinter import *
+import random
+from tkinter.messagebox import *
 handle = open(os.path.join(os.path.dirname(__file__)+'/saves/highscore.txt'),'r')
 score[1]=int(handle.read())
 #障碍点个数
 w=[0]
 #initiallize difficulty
 current_mode = [""]
-from tkinter import *
-import random
-from tkinter.messagebox import *
-
 x=Tk()
 x.title("game")
 x.geometry("350x420")
@@ -28,41 +28,43 @@ label_1.pack()
 label_2= Label(x,text="High score:%d" %score[1],font="10",width=40,height=1,fg="black")
 label_2.pack()
 #贴图
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/european/brick.gif'))
-
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/free/brick.gif'))
-
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/conquest/brick.gif'))
-
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/future/brick.gif'))
-
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/midevil/brick.gif'))
-
-box_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/box.gif'))
-ter_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/terminate.gif'))
-obs_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/wall.gif'))
-host_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/host.gif'))
-bg_img=PhotoImage(file=os.path.join(os.path.dirname(__file__)+'/textures/woody/brick.gif'))
+current_theme=2
+if current_theme == 0:
+    box_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/free/box.gif'))
+    ter_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/free/terminate.gif'))
+    obs_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/free/wall.gif'))
+    host_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/free/host.gif'))
+    bg_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/free/brick.gif'))
+if current_theme == 1:
+    box_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/conquest/box.gif'))
+    ter_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/conquest/terminate.gif'))
+    obs_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/conquest/wall.gif'))
+    host_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/conquest/host.gif'))
+    bg_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/conquest/brick.gif'))
+if current_theme == 2:
+    box_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/european/box.gif'))
+    ter_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/european/terminate.gif'))
+    obs_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/european/wall.gif'))
+    host_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/european/host.gif'))
+    bg_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/european/brick.gif'))
+if current_theme == 3:
+    box_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/future/box.gif'))
+    ter_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/future/terminate.gif'))
+    obs_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/future/wall.gif'))
+    host_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/future/host.gif'))
+    bg_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/future/brick.gif'))
+if current_theme == 4:
+    box_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/midevil/box.gif'))
+    ter_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/midevil/terminate.gif'))
+    obs_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/midevil/wall.gif'))
+    host_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/midevil/host.gif'))
+    bg_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/midevil/brick.gif'))
+if current_theme == 5:
+    box_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/woody/box.gif'))
+    ter_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/woody/terminate.gif'))
+    obs_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/woody/wall.gif'))
+    host_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/woody/host.gif'))
+    bg_img = PhotoImage(file=os.path.join(os.path.dirname(__file__) + '/textures/woody/brick.gif'))
 #初始化背景
 for i in range(0,11):
     for j in range(0,11):
