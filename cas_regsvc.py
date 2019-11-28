@@ -5,11 +5,15 @@ def cas_regsvc():
         regsvc.destroy()
 
     def regsvcconfirm():
+        inputusrname=usrname_inputbox.get()
+        inputpasswd=passwd_inputbox.get()
+        inputnkname=nkname_inputbox.get()
         if nickname_repeat_flag == 1:
             tm.showwarning("warning", "昵称已经存在，请再选一个")
         else:
             tm.showinfo("info", "注册成功！")
             regsvcquit()
+#CASregsvc main framework
     regsvc = Tk()
     regsvc.title("register")
     regsvc.geometry("350x350")
@@ -20,7 +24,7 @@ def cas_regsvc():
     confirm_btn = Button(regsvc, text="confirm", font='4', width=15, height=1, fg="black", command=regsvcconfirm)
     cancel_btn = Button(regsvc, text="cancel", font='4', width=15, height=1, fg="black", command=regsvcquit)
     usrname_inputbox = Entry(regsvc, textvariable="john", font=6, width=21, bd=5)
-    nkname_inputbox = Entry(regsvc, textvariable="john", font=6, width=21, bd=5)
+    nkname_inputbox = Entry(regsvc, textvariable="johnny", font=6, width=21, bd=5)
     passwd_inputbox = Entry(regsvc, textvariable="password", font=6, width=21, bd=5, show="*")
     usrname_lb.place(x=18, y=15)
     usrname_inputbox.place(x=120, y=15)

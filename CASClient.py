@@ -5,6 +5,7 @@ import cas_regsvc
 def CASClient():
     def casquit():
         cas.destroy()
+#验证输入账户和CAS数据库是否匹配
     def casconfirm():
         inputusrname= usrname_inputbox.get()
         inputpasswd=passwd_inputbox.get()
@@ -19,6 +20,7 @@ def CASClient():
                 pass
     def casregister():
         cas_regsvc.cas_regsvc()
+#CASClient main framework
     cas=Tk()
     cas.title("CAS client")
     cas.geometry("350x180")

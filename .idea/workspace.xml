@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfa95e27-34b5-4a20-9235-ec651c0bc4ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cas_regsvc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CASClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/CASClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/box.py" beforeDir="false" afterPath="$PROJECT_DIR$/box.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cas_regsvc.py" beforeDir="false" afterPath="$PROJECT_DIR$/cas_regsvc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -203,6 +202,7 @@
       <workItem from="1574919117779" duration="772000" />
       <workItem from="1574919958624" duration="116000" />
       <workItem from="1574921225896" duration="10372000" />
+      <workItem from="1574939089376" duration="859000" />
     </task>
     <servers />
   </component>
