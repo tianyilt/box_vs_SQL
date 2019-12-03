@@ -5,9 +5,11 @@ def cas_regsvc():
         regsvc.destroy()
 
     def regsvcconfirm():
+        nickname_repeat_flag = 0
         inputusrname=usrname_inputbox.get()
         inputpasswd=passwd_inputbox.get()
         inputnkname=nkname_inputbox.get()
+        # 此行添加数据库连接
         if nickname_repeat_flag == 1:
             tm.showwarning("warning", "昵称已经存在，请再选一个")
         else:

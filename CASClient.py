@@ -9,6 +9,7 @@ def CASClient():
     def casconfirm():
         inputusrname= usrname_inputbox.get()
         inputpasswd=passwd_inputbox.get()
+        #此行连接数据库
         if verify_return_flag ==1:
             tm.showinfo("welcome","欢迎回来，"+inputusrname)
         if verify_return_flag ==0:
