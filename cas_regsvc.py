@@ -11,7 +11,7 @@ def cas_regsvc():
         inputnkname=nkname_inputbox.get()
         # 此行添加数据库连接
         if nickname_repeat_flag == 1:
-            tm.showwarning("ご注意", "ニックネーム既に存在しました、もう一度付けてください")
+            tm.showwarning("ご注意ください", "ニックネーム既に存在しました、もう一度付けてください")
         else:
             tm.showinfo("情報", "登録成功！")
             regsvcquit()

@@ -1,2 +1,0 @@
-import CASClient
-CASClient.CASClient()

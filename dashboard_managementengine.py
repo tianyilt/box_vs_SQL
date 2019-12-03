@@ -55,6 +55,21 @@ def refreshticket():
     pass
 
 
+def clearticket():
+    dbshowup.delete(0,END)
+
+
+def confirmticket():
+    if tm.askyesno("warning","操作提交之后更改不可恢复，是否确定？") ==1:
+        pass
+    else:
+        pass
+def cancelticket():
+    if tm.askyesno("warning","没有提交的数据会永久丢失！真的很久！！") ==1:
+        pass
+    else:
+        pass
+
 def viewopt(event):
     dic = {0: viewaccount(), 1: viewscore(), 2: viewhighscore(), 3: viewdlcpurchase(), 5: viewundefinedfunction()}
     c = dic[optbox.current()]
@@ -71,11 +86,23 @@ dme = Tk()
 dme.title("dme_svc")
 dme.geometry("1280x720")
 c = Canvas(dme, width=1280, height=720)
-dbshowup = Text(dme, bd=5)
+frame1 = Frame(dme,relief = RAISED,width=720,height=700)
+frame1.place(relx=0.0)
+dbshowup = Listbox(frame1,height=72,width=70)
 optbox = Combobox(dme, values=['删除账号', '封禁帐号', '清除选择的记录', '改变值', '禁用用户选项', 'undefinedfunction'])
 optbox.bind('<<ComboboxSelected>>', accountopt)
 viewbox = Combobox(dme, values=['查看用户', '查看用户分数', '查看最高分数', '查看购买内容', 'undefinedfunction'])
 viewbox.bind('<<ComboboxSelected>>', viewopt)
 refreshbtn = Button(dme, text="刷新", command=refreshticket)
+clearbtn = Button(dme, text="清除", command=clearticket)
+confirmbtn = Button(dme, text="确定", command=confirmticket)
+cancelbtn = Button(dme, text="取消", command=cancelticket)
+optbox.pack()
+viewbox.pack()
+refreshbtn.pack()
+clearbtn.pack()
+dbshowup.pack()
+confirmbtn.pack()
+cancelbtn.pack()
 c.pack()
 dme.mainloop()
