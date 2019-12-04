@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfa95e27-34b5-4a20-9235-ec651c0bc4ef" name="Default Changelist" comment="" />
+    <list default="true" id="cfa95e27-34b5-4a20-9235-ec651c0bc4ef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dlc_pcs_svc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CASClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/CASClient.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard_client.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +70,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
+  <component name="RunManager" selected="Python.dashboard_client">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="box" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,7 +115,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cas_regsvc" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="dashboard_client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="box" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,7 +128,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cas_regsvc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dashboard_client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,7 +137,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dashboard_managementengine" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="dlc_pcs_svc" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="box" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -145,7 +150,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dashboard_managementengine.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dlc_pcs_svc.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -201,18 +206,18 @@
     <list>
       <item itemvalue="Python.Unnamed" />
       <item itemvalue="Python.box" />
-      <item itemvalue="Python.cas_regsvc" />
-      <item itemvalue="Python.dashboard_managementengine" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.dashboard_client" />
+      <item itemvalue="Python.dlc_pcs_svc" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dashboard_client" />
+        <item itemvalue="Python.dlc_pcs_svc" />
         <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.box" />
-        <item itemvalue="Python.dashboard_managementengine" />
-        <item itemvalue="Python.cas_regsvc" />
       </list>
     </recent_temporary>
   </component>
@@ -240,6 +245,7 @@
       <workItem from="1575351129196" duration="1801000" />
       <workItem from="1575355073805" duration="16709000" />
       <workItem from="1575376381147" duration="30000" />
+      <workItem from="1575437807332" duration="3464000" />
     </task>
     <servers />
   </component>
@@ -261,6 +267,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/box_vs_SQL$cas_regsvc.coverage" NAME="cas_regsvc Coverage Results" MODIFIED="1575360895428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/box_vs_SQL$dashboard_client.coverage" NAME="dashboard_client Coverage Results" MODIFIED="1575441253024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/box_vs_SQL$main.coverage" NAME="main Coverage Results" MODIFIED="1575376192456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/新建文件夹" />
     <SUITE FILE_PATH="coverage/box$2018111913.coverage" NAME="推箱子2018111913 Coverage Results" MODIFIED="1573557653123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/box$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1573557022446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -268,6 +275,7 @@
     <SUITE FILE_PATH="coverage/box_vs_SQL$CASClient.coverage" NAME="CASClient Coverage Results" MODIFIED="1575355164058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/box_vs_SQL$dashboard_managementengine.coverage" NAME="dashboard_managementengine Coverage Results" MODIFIED="1575372092713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/box_vs_SQL$box.coverage" NAME="box Coverage Results" MODIFIED="1575374481966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/box_vs_SQL$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1575376217759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/box_vs_SQL$dlc_pcs_svc.coverage" NAME="dlc_pcs_svc Coverage Results" MODIFIED="1575441105233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/box_vs_SQL$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1575439705676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -11,13 +11,18 @@ def CASClient():
     # 验证输入账户和CAS数据库是否匹配
     def casconfirm():
         verify_return_flag = 1
+        admin_flag = 0
         inputusrname = usrname_inputbox.get()
         inputpasswd = passwd_inputbox.get()
         # 此行连接数据
         if verify_return_flag == 1:
             tm.showinfo("歓迎", "お帰りなさい，" + inputusrname)
-            cas.destroy()
-            box.box(2)
+            if admin_flag ==0:
+                cas.destroy()
+                box.box(2)
+            else:
+                cas.destroy()
+
 
         if verify_return_flag == 0:
             tm.showerror("エラー", "ユーザー未登録又はパスワードエラー")
