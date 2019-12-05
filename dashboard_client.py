@@ -1,3 +1,4 @@
+#dashboardclient copyright 2019 by syuizen
 from tkinter import *
 import tkinter.messagebox as tm
 from tkinter.ttk import *
@@ -7,9 +8,15 @@ def purchase():
     dlc_pcs_svc.dlc()
 def refreshticket():
     pass
+    #########################################拉取数据库视图
 def deletecurrent():
-    if tm.askokcancel("ご注意ください","注意：ご記録は完全に削除されます、本当に長いです"):
-        pass
+    if tm.askokcancel("ご注意","ご注意ください：ご記録は完全に削除されます、本当に長いです"):
+        if myshowup.curselection() !=  ():
+            datachange=myshowup.curselection()
+            myshowup.delete(myshowup.curselection())
+            #######################################################################################从数据库删除datachange
+        else:
+            tm.showerror("エラー","何も選択しない！")
     else:
         pass
 def login():
@@ -17,7 +24,7 @@ def login():
     CASClient.CASClient()
 # def management_engine():
 dme = Tk()
-dme.title("ハイスクール")
+dme.title("ハイスコア")
 dme.geometry("600x400")
 c = Canvas(dme, width=1280, height=720)
 frame1 = Frame(dme,relief = RAISED,width=30,height=60)
@@ -29,7 +36,7 @@ worldshowup = Listbox(frame2,width=30,height=60)
 refreshbtn = Button(dme, text="更新", width= 18,command=refreshticket)
 clearbtn = Button(dme, text="レコードを削除します", width= 18,command=deletecurrent)
 loginbtn=Button(dme,text="ログイン",width= 18,command=login)
-purchasebtn = Button(dme, text="コンテンツを贖います",width= 18, command=purchase)
+purchasebtn = Button(dme, text="コンテンツを買います",width= 18, command=purchase)
 quitbtn = Button(dme, text="ゲーム終了", width= 18,command=quit)
 refreshbtn.place(x=430,y=40)
 clearbtn.place(x=430,y=70)
