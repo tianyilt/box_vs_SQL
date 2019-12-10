@@ -2,7 +2,7 @@ from tkinter import *
 import box
 import tkinter.messagebox as tm
 import cas_regsvc
-
+import dashboard_managementengine
 
 def CASClient():
     def casquit():
@@ -10,18 +10,19 @@ def CASClient():
 
     # 验证输入账户和CAS数据库是否匹配
     def casconfirm():
-        verify_return_flag = 1
-        admin_flag = 0
         inputusrname = usrname_inputbox.get()
         inputpasswd = passwd_inputbox.get()
         # 此行连接数据
+        verify_return_flag = 1
+        admin_flag = 0
         if verify_return_flag == 1:
             tm.showinfo("歓迎", "お帰りなさい，" + inputusrname)
             if admin_flag ==0:
                 cas.destroy()
-                box.box(2)
+                box.box(2)#####################################################################################################################################################
             else:
                 cas.destroy()
+                dashboard_managementengine.dme()
 
 
         if verify_return_flag == 0:
