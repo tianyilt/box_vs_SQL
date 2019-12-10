@@ -1,8 +1,6 @@
 from tkinter import *
-import box
 import tkinter.messagebox as tm
 import cas_regsvc
-#import dashboard_managementengine
 import themeselecter
 def CASClient():
     def casquit():
@@ -18,10 +16,9 @@ def CASClient():
             tm.showinfo("歓迎", "お帰りなさい，" + inputusrname)
             if admin_flag ==0:
                 cas.destroy()
-                box.box(2)#####################################################################################################################################################
+                themeselecter.ts()#####################################################################################################################################################
             else:
                 cas.destroy()
-                #dashboard_managementengine.dme()
 
 
         if verify_return_flag == 0:
