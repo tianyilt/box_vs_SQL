@@ -2,12 +2,11 @@ from tkinter import *
 import box
 import tkinter.messagebox as tm
 import cas_regsvc
-import dashboard_managementengine
-
+#import dashboard_managementengine
+import themeselecter
 def CASClient():
     def casquit():
         cas.destroy()
-
     # 验证输入账户和CAS数据库是否匹配
     def casconfirm():
         inputusrname = usrname_inputbox.get()
@@ -22,7 +21,7 @@ def CASClient():
                 box.box(2)#####################################################################################################################################################
             else:
                 cas.destroy()
-                dashboard_managementengine.dme()
+                #dashboard_managementengine.dme()
 
 
         if verify_return_flag == 0:
