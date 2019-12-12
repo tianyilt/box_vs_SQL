@@ -5,3 +5,9 @@
 *.xml
 *.xml
 *.xml
+__pycache__/box.cpython-37.pyc
+__pycache__/cas_regsvc.cpython-37.pyc
+__pycache__/CASClient.cpython-37.pyc
+__pycache__/dashboard_client.cpython-37.pyc
+__pycache__/dlc_pcs_svc.cpython-37.pyc
+__pycache__/themeselecter.cpython-37.pyc
