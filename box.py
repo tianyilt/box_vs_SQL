@@ -25,7 +25,7 @@ def box(current_theme,uid):
     # initiallize difficulty
     current_mode = [""]
     x = Tk()
-    x.title("game"+uid)
+    x.title("player:"+uid+"  online")
     x.geometry("350x420")
     c = Canvas(x, width=350, height=350)
     c.pack()
