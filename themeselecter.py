@@ -11,6 +11,7 @@ def ts(uid):
     def themesvcconfirm():
         ######################
         cd = accountopt()
+        #purchase_flag ==1 则dlc已经购买
         purchase_flag = 1
         if purchase_flag ==1:
             themesvc.destroy()
