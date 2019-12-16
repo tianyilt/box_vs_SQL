@@ -7,11 +7,21 @@ def CASClient():
     def casquit():
         cas.destroy()
     # 验证输入账户和CAS数据库是否匹配
+
+
+
+
     def casconfirm():
         inputusrname = usrname_inputbox.get()
         inputpasswd = passwd_inputbox.get()
         # 此行连接数据
-        #verify_return_flag ==1则参考数据库验证通过
+
+
+
+        #verify_return_flag ==1则参考数据库验证通过,先看username有没有,没有返回0,有的话,看password是否符合
+
+
+
         verify_return_flag = 1
         if verify_return_flag == 1:
             tm.showinfo("歓迎", "お帰りなさい，" + inputusrname)

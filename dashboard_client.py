@@ -11,12 +11,27 @@ def dbc(uid):
     def refreshticket():
         pass
         #########################################拉取数据库视图
+        """
+        前提:有个视图
+        UID高分视图
+        全局高分视图
+        return 
+        """
+
+
     def deletecurrent():
         if tm.askokcancel("ご注意","ご注意ください：ご記録は完全に削除されます、本当に長いです"):
-            if myshowup.curselection() !=  ():
+            if myshowup.curselection() !=  ():#TODO:if uid=uid,ok
                 datachange=myshowup.curselection()
                 myshowup.delete(myshowup.curselection())
                 #######################################################################################从数据库删除datachange
+                #数据库中也删除dashboard记录
+
+
+
+
+
+
             else:
                 tm.showerror("エラー","何も選択しない！")
         else:
