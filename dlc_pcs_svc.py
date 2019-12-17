@@ -9,11 +9,20 @@ def dlc():
             if tm.askyesno("ご確認ください",contentchange+"の購入を確認しますか？")==1:
                tm.showinfo("メッセージ",contentchange+"購入成功！")
                ########################contentchange写入数据库
+                #购买后,相关记录变更
+
+
+
             else:
                 pass
     def refreshticket():
         pass
     #################################拉取数据库视图
+
+
+
+    #dlc视图
+
     def dlcquit():
         dlc.destroy()
     # def management_engine():

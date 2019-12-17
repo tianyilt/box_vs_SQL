@@ -5,7 +5,17 @@ def cas_regsvc():
         regsvc.destroy()
 
     def regsvcconfirm():
-        nickname_repeat_flag = 0
+        #nickname_repeat_flag ==1说明参考数据库昵称定义重复\
+
+
+
+
+
+
+
+
+        
+        nickname_repeat_flag = 1
         inputusrname=usrname_inputbox.get()
         inputpasswd=passwd_inputbox.get()
         inputnkname=nkname_inputbox.get()

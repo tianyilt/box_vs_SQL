@@ -5,7 +5,7 @@ from tkinter import *
 import random
 from tkinter.messagebox import *
 current_theme=0
-def box(current_theme):
+def box(current_theme,uid):
     pygame.init()
     pygame.mixer.init()
     pygame.mixer.music.load("sound/HAIKARA.mp3")
@@ -25,7 +25,7 @@ def box(current_theme):
     # initiallize difficulty
     current_mode = [""]
     x = Tk()
-    x.title("game")
+    x.title("player:"+uid+"  online")
     x.geometry("350x420")
     c = Canvas(x, width=350, height=350)
     c.pack()
