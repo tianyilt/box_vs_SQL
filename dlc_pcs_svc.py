@@ -31,7 +31,8 @@ def dlc(uid):
             else:
                 pass
     def refreshticket():
-        pass
+        contentshowup.delete(0,END)
+        contentshowup.insert(END,"free")
     #################################拉取数据库视图
 
 

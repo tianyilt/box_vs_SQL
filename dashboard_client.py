@@ -9,13 +9,19 @@ def dbc(uid):
     def purchase():
         dlc_pcs_svc.dlc(uid)
     def refreshticket():
+        worldshowup.delete(0,END)
+        myshowup.delete(0,END)
+
+        worldshowup.insert(END,"Athrun_Zala 10086")
+        myshowup.insert(END,"Athrun_Zala 2019-01-20 10086")
         #########################################拉取数据库视图
         """
         前提:有个视图
         UID高分视图
         全局高分视图
-        return 
+        
         """
+
         # import pymysql
         # db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
         # cursor = db.cursor()

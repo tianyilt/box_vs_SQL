@@ -17,9 +17,9 @@ def box(current_theme,uid):
     x_obs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     y_obs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     score = [0, 0]
-    # 获取历史最高分
-    handle = open(os.path.join(os.path.dirname(__file__) + '/saves/highscore.txt'), 'r')
-    score[1] = int(handle.read())
+    #
+    #TODO： 获取历史最高分
+
     # 障碍点个数
     w = [0]
     # initiallize difficulty
@@ -469,9 +469,8 @@ def box(current_theme,uid):
 
     # 注册最高分
     def regist():
-        handle = open(os.path.join(os.path.dirname(__file__) + '/saves/highscore.txt'), 'w+')
-        handle.write(str(score[1]))
-        handle.close()
+        pass
+        #TODO：上传数据库
 
 
     # 比较分数
