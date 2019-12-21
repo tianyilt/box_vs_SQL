@@ -12,7 +12,7 @@ __pycache__/dashboard_client.cpython-37.pyc
 __pycache__/dlc_pcs_svc.cpython-37.pyc
 __pycache__/themeselecter.cpython-37.pyc
 *.xml
-.idea/
+.idea
 .idea/box_vs_SQL.iml
 .idea/misc.xml
 .idea/workspace.xml
