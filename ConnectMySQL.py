@@ -6,7 +6,7 @@ db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', c
 
 cursor = db.cursor()
 
-# SQL 插入语句
+#SQL 插入语句
 sql = "INSERT INTO EMPLOYEE(FIRST_NAME, \
        LAST_NAME, AGE, SEX, INCOME) \
        VALUES ('%s', '%s',  %s,  '%s',  %s)" % \
