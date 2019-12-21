@@ -5,21 +5,50 @@ def cas_regsvc():
         regsvc.destroy()
 
     def regsvcconfirm():
-        #nickname_repeat_flag ==1说明参考数据库昵称定义重复\
-
-
-
-
-
-
-
-
-        
-        nickname_repeat_flag = 1
         inputusrname=usrname_inputbox.get()
         inputpasswd=passwd_inputbox.get()
         inputnkname=nkname_inputbox.get()
-        # 此行添加数据库连接
+
+        if inputusrname and inputpasswd and inputnkname:
+            import pymysql
+            # 此行添加数据库连接
+            db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+            cursor = db.cursor()
+            sql = """select NickName from login where UserName ='%s' """ % (inputusrname)
+            try:
+                cursor.execute(sql)  # 执行sql语句
+                results = cursor.fetchall()  # 获取查询的所有记录
+                # 返回值是一个元组的形式
+                if results:
+                    # 表示有重复的username
+                    nickname_repeat_flag = 1
+                else:
+                    # 表示没有重复的username，开始把账户信息写入login
+                    nickname_repeat_flag = 0
+                    sql = """INSERT INTO login(UserName, \
+                           PassWord, NickName) \
+                           VALUES ('%s', '%s', '%s')""" % \
+                          (inputusrname, inputpasswd, inputnkname)
+                    # 执行sql语句
+                    cursor.execute(sql)
+                    # 提交到数据库执行
+                    db.commit()
+
+            except Exception as e:
+                db.rollback()
+            finally:
+                db.close()
+
+
+        else:
+            nickname_repeat_flag = 0
+
+
+
+
+        #nickname_repeat_flag ==1说明参考数据库昵称定义重复\
+        #nickname_repeat_flag = 1
+
         if nickname_repeat_flag == 1:
             tm.showwarning("ご注意ください", "ニックネーム既に存在しました、もう一度付けてください")
         else:
