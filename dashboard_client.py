@@ -7,7 +7,7 @@ import themeselecter
 import dlc_pcs_svc
 def dbc(uid):
     def purchase():
-        dlc_pcs_svc.dlc()
+        dlc_pcs_svc.dlc(uid)
     def refreshticket():
         #########################################拉取数据库视图
         """
