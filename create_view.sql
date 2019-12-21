@@ -1,0 +1,12 @@
+CREATE VIEW dlcbuy
+as
+SELECT   UID, Dtype, Date
+FROM      dlc
+ORDER BY UID;
+
+CREATE VIEW dashboard
+as
+SELECT   UID, MAX(Score) AS MAXSCORE
+FROM      gamerecord
+GROUP BY UID
+ORDER BY MAXSCORE DESC;

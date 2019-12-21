@@ -9,14 +9,36 @@ def dlc():
             if tm.askyesno("ご確認ください",contentchange+"の購入を確認しますか？")==1:
                tm.showinfo("メッセージ",contentchange+"購入成功！")
                ########################contentchange写入数据库
+                #购买后,相关记录变更
+
+               # import pymysql
+               # db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+               # cursor = db.cursor()
+               #
+               # sql = """select PassWord from login where UserName ='%s' """ % (inputusrname)
+               #
+               # try:
+               #     cursor.execute(sql)  # 执行sql语句
+               #
+               # except Exception as e:
+               #     db.rollback()
+               #
+               # finally:
+               #     db.close()
+
+
             else:
                 pass
     def refreshticket():
         pass
     #################################拉取数据库视图
+
+
+
+    #dlc视图
+
     def dlcquit():
         dlc.destroy()
-        ##############################################################################################################################################################
     # def management_engine():
     dlc = Toplevel()
     dlc.title("コンテンツ買う")

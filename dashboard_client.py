@@ -9,14 +9,41 @@ def dbc(uid):
     def purchase():
         dlc_pcs_svc.dlc()
     def refreshticket():
-        pass
         #########################################拉取数据库视图
+        """
+        前提:有个视图
+        UID高分视图
+        全局高分视图
+        return 
+        """
+        # import pymysql
+        # db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+        # cursor = db.cursor()
+        #
+        # sql = """select PassWord from login where UserName ='%s' """ % (inputusrname)
+        #
+        # try:
+        #     cursor.execute(sql)  # 执行sql语句
+        #
+        # except Exception as e:
+        #     db.rollback()
+        #
+        # finally:
+        #     db.close()
+
+
     def deletecurrent():
         if tm.askokcancel("ご注意","ご注意ください：ご記録は完全に削除されます、本当に長いです"):
-            if myshowup.curselection() !=  ():
+            if myshowup.curselection() !=  ():#TODO:if uid=uid,ok
                 datachange=myshowup.curselection()
                 myshowup.delete(myshowup.curselection())
                 #######################################################################################从数据库删除datachange
+                #数据库中也删除dashboard记录
+
+
+
+
+
             else:
                 tm.showerror("エラー","何も選択しない！")
         else:
