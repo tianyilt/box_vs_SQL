@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2019-12-20 21:29:04
+Date: 2019-12-21 11:39:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,6 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `dlc`;
 CREATE TABLE `dlc` (
   `DID` int(10) NOT NULL,
+  `Dtype` int(10) NOT NULL,
   `UID` int(10) NOT NULL,
   `money` int(10) NOT NULL,
   `date` datetime DEFAULT NULL,
@@ -32,6 +33,11 @@ CREATE TABLE `dlc` (
 -- ----------------------------
 -- Records of dlc
 -- ----------------------------
+INSERT INTO `dlc` VALUES ('1', '1', '1', '20', '2019-12-03 18:00:01');
+INSERT INTO `dlc` VALUES ('2', '2', '1', '20', '2019-12-03 20:00:01');
+INSERT INTO `dlc` VALUES ('3', '1', '2', '20', '2019-12-03 18:00:01');
+INSERT INTO `dlc` VALUES ('4', '1', '3', '20', '2019-12-03 20:00:01');
+INSERT INTO `dlc` VALUES ('5', '5', '1', '20', '2019-12-03 20:00:01');
 
 -- ----------------------------
 -- Table structure for `gamerecord`
@@ -53,6 +59,10 @@ CREATE TABLE `gamerecord` (
 -- ----------------------------
 -- Records of gamerecord
 -- ----------------------------
+INSERT INTO `gamerecord` VALUES ('1', '1', '1', '2019-12-04 18:00:01', '20');
+INSERT INTO `gamerecord` VALUES ('2', '5', '1', '2019-12-05 18:00:01', '100');
+INSERT INTO `gamerecord` VALUES ('3', '3', '2', '2019-12-06 18:00:01', '21');
+INSERT INTO `gamerecord` VALUES ('4', '4', '3', '2019-12-07 18:00:01', '33');
 
 -- ----------------------------
 -- Table structure for `login`
@@ -69,3 +79,18 @@ CREATE TABLE `login` (
 -- ----------------------------
 -- Records of login
 -- ----------------------------
+INSERT INTO `login` VALUES ('1', 'tianyilt', '123', 'mdzz');
+INSERT INTO `login` VALUES ('2', 'alpha', '123', 'md');
+INSERT INTO `login` VALUES ('3', 'beta', '123', 'mdz');
+
+-- ----------------------------
+-- View structure for `dashboard`
+-- ----------------------------
+DROP VIEW IF EXISTS `dashboard`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`ZNDY`@`%` SQL SECURITY DEFINER VIEW `dashboard` AS select `gamerecord`.`UID` AS `UID`,max(`gamerecord`.`Score`) AS `MAXSCORE` from `gamerecord` group by `gamerecord`.`UID` order by `MAXSCORE` desc ;
+
+-- ----------------------------
+-- View structure for `dlcbuy`
+-- ----------------------------
+DROP VIEW IF EXISTS `dlcbuy`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`ZNDY`@`%` SQL SECURITY DEFINER VIEW `dlcbuy` AS select `dlc`.`UID` AS `UID`,`dlc`.`Dtype` AS `Dtype`,`dlc`.`date` AS `Date` from `dlc` order by `dlc`.`UID` ;
