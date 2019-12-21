@@ -12,8 +12,8 @@ def CASClient():
     def casconfirm():
         inputusrname = usrname_inputbox.get()
         inputpasswd = passwd_inputbox.get()
-        inputusrname ='tianyilt'
-        inputpasswd ='123'
+        # inputusrname ='tianyilt'
+        # inputpasswd ='123'
         if inputusrname and inputpasswd:
             #此行连接数据
             import pymysql

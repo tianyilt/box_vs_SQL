@@ -1,8 +1,11 @@
 select * from dlcbuy;
 select * from dlc;
+select * from login;
+select * from ID;
+select * from gamerecord;
 select * from dashboard limit 10;
 select * from dashboard where username = 'tianyilt' limit 10;
-DELETE gamerecord where Score = 21 AND
+select UserName, DID, UID, Dtype from ID where UserName = 'tianyilt' and Dtype = 1
 
 SELECT   dlc.Dtype
 FROM      login CROSS JOIN

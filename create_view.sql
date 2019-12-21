@@ -15,7 +15,16 @@ as
 SELECT   UserName, Score, EndTime
 FROM      gamerecord cross join login
 where gamerecord.UID = login.UID
-ORDER BY SCORE DESC
+ORDER BY SCORE DESC;
+
+DROP view IF EXISTS `ID`;
+CREATE VIEW ID
+as
+SELECT   login.UserName, gamerecord.DID, gamerecord.UID, dlc.Dtype
+FROM (gamerecord join login on gamerecord.UID = login.UID)
+    join dlc on gamerecord.uid = dlc.UID;
+
+
 
 SELECT   UserName, MAX(EndTime) AS LastTime, MAX(Score) AS MaxScore
 FROM      gamerecord cross join login

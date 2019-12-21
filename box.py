@@ -1,17 +1,21 @@
 # coding=utf-8
 # 坐标数组
-import pygame,sys
+import pygame, sys
 import os
 from tkinter import *
 import random
 from tkinter.messagebox import *
-current_theme=0
-def box(current_theme,uid):
+
+current_theme = 0
+
+
+def box(current_theme, uid):
+    global bg_img, obs_img
     pygame.init()
     pygame.mixer.init()
     pygame.mixer.music.load("sound/HAIKARA.mp3")
 
-    pygame.mixer.music.play(loops=-1,start=0.0)
+    pygame.mixer.music.play(loops=-1, start=0.0)
     host_lo = [0, 0]
     box_lo = [0, 0]
     ter_lo = [0, 0]
@@ -19,14 +23,36 @@ def box(current_theme,uid):
     y_obs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     score = [0, 0]
     #
-    #TODO： 获取历史最高分
+    # TODO： 获取历史最高分
+    import pymysql
+    db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+    cursor = db.cursor()
+
+    sql_my = """select * from dashboard where username = '%s' limit 1 """ % (uid)
+    try:
+        cursor.execute(sql_my)  # 执行sql语句
+        result = cursor.fetchall()  # 二维tuple，username:string score:int endtime:datetime.datetime(2019, 12, 5, 18, 0, 1).strftime('%Y-%m-%d %H:%M:%S')
+        score[1] = result[0][1]
+
+    except Exception as e:
+        db.rollback()
+
+    finally:
+        db.close()
+
+    # 获取历史最高分
+
+    handle = open(os.path.join(os.path.dirname(__file__) + '/saves/highscore.txt'), 'r')
+    score_local = int(handle.read())
+    if score[1] < score_local:
+        score[1] = score_local
 
     # 障碍点个数
     w = [0]
     # initiallize difficulty
     current_mode = [""]
     x = Tk()
-    x.title("player:"+uid+"  online")
+    x.title("player:" + uid + "  online")
     x.geometry("350x420")
     c = Canvas(x, width=350, height=350)
     c.pack()
@@ -86,39 +112,31 @@ def box(current_theme,uid):
     for i in range(1, 11):
         t = c.create_image(336, 32 * i + 16, image=obs_img)
 
-
     # 五个基本函数
     def scores():
         label_1.config(text="現在得点:%d" % score[0])
         label_2.config(text="最高得点:%d" % score[1])
 
-
     def erased(i, j):
         t = c.create_image(32 * i + 16, 32 * j + 16, image=bg_img)
-
 
     def host(i, j):
         t = c.create_image(32 * i + 16, 32 * j + 16, image=host_img)
 
-
     def box(i, j):
         t = c.create_image(32 * i + 16, 32 * j + 16, image=box_img)
-
 
     def terminate(i, j):
         t = c.create_image(32 * i + 16, 32 * j + 16, image=ter_img)
 
-
     def fill_black(i, j):
         t = c.create_image(32 * i + 16, 32 * j + 16, image=obs_img)
-
 
     # 清盘
     def clear_all():
         for i in range(1, 10):
             for j in range(1, 10):
                 erased(i, j)
-
 
     # 随机生成五个障碍点
     def lay_obs():
@@ -139,7 +157,6 @@ def box(current_theme,uid):
         # print("x_obs=",x_obs)
         # print("y_obs=",y_obs)
 
-
     # 随机生成目标点
     def lay_ter():
         while 1:
@@ -156,7 +173,6 @@ def box(current_theme,uid):
                 ter_lo[1] = ty
                 break
         # print ("terminate=",ter_lo)
-
 
     # 随机生成箱子坐标
     def lay_box():
@@ -176,7 +192,6 @@ def box(current_theme,uid):
                 box_lo[1] = by
                 break
         # print("box_start=",box_lo)
-
 
     # 随机生成起点坐标
     def lay_sta():
@@ -199,14 +214,12 @@ def box(current_theme,uid):
                 break
         # print("host_start=",host_lo)
 
-
     # 安置各个色块
     def start_game():
         lay_obs()
         lay_ter()
         lay_box()
         lay_sta()
-
 
     # 终点相关的判定
     def judged():
@@ -235,7 +248,6 @@ def box(current_theme,uid):
         else:
             terminate(ter_lo[0], ter_lo[1])
 
-
     # 四个host移动函数
     def move_up():
         if host_lo[1] == 1:  # 防止上出界
@@ -245,7 +257,6 @@ def box(current_theme,uid):
         host_lo[1] = host_lo[1] - 1
         # print("host=",host_lo)
 
-
     def move_down():
         if host_lo[1] == 9:
             return
@@ -254,14 +265,12 @@ def box(current_theme,uid):
         host_lo[1] = host_lo[1] + 1
         # print("host=",host_lo)
 
-
     def move_left():
         if host_lo[0] == 1:
             return
         erased(host_lo[0], host_lo[1])
         host(host_lo[0] - 1, host_lo[1])
         host_lo[0] = host_lo[0] - 1
-
 
     # print("host=",host_lo)
     def move_right():
@@ -272,7 +281,6 @@ def box(current_theme,uid):
         host_lo[0] = host_lo[0] + 1
         # print("host=",host_lo)
 
-
     # 四个box移动函数
     def box_up():
         if box_lo[1] == 1:
@@ -280,7 +288,6 @@ def box(current_theme,uid):
         erased(box_lo[0], box_lo[1])
         box(box_lo[0], box_lo[1] - 1)
         box_lo[1] = box_lo[1] - 1
-
 
     # print("box=",box_lo)
     def box_down():
@@ -291,14 +298,12 @@ def box(current_theme,uid):
         box_lo[1] = box_lo[1] + 1
         # print("box=",box_lo)
 
-
     def box_left():
         if box_lo[0] == 1:
             return
         erased(box_lo[0], box_lo[1])
         box(box_lo[0] - 1, box_lo[1])
         box_lo[0] = box_lo[0] - 1
-
 
     # print("box=",box_lo)
     def box_right():
@@ -307,7 +312,6 @@ def box(current_theme,uid):
         erased(box_lo[0], box_lo[1])
         box(box_lo[0] + 1, box_lo[1])
         box_lo[0] = box_lo[0] + 1
-
 
     #  print("box=",box_lo)
     # 四个推箱子函数
@@ -333,7 +337,6 @@ def box(current_theme,uid):
                 move_up()
         judged()
 
-
     def push_down():
         p = 0
         if host_lo[1] + 1 == box_lo[1] and host_lo[0] == box_lo[0]:
@@ -355,7 +358,6 @@ def box(current_theme,uid):
             if p == 0:
                 move_down()
         judged()
-
 
     def push_left():
         p = 0
@@ -379,7 +381,6 @@ def box(current_theme,uid):
                 move_left()
         judged()
 
-
     def push_right():
         p = 0
         if host_lo[0] + 1 == box_lo[0] and host_lo[1] == box_lo[1]:
@@ -402,7 +403,6 @@ def box(current_theme,uid):
                 move_right()
         judged()
 
-
     # 关联键盘
     def key_detect(event):
         if event.keysym == "Up" or event.keysym == "w" or event.keysym == "W":
@@ -416,10 +416,8 @@ def box(current_theme,uid):
         else:
             pass
 
-
     kd = Button(x)
     kd.bind_all("<KeyPress>", key_detect)
-
 
     # 难度设置
     def w_low():
@@ -428,13 +426,11 @@ def box(current_theme,uid):
         start_game()
         current_mode[0] = "0"
 
-
     def w_medium():
         w[0] = 8
         clear_all()
         start_game()
         current_mode[0] = "1"
-
 
     def w_high():
         w[0] = 10
@@ -442,11 +438,9 @@ def box(current_theme,uid):
         start_game()
         current_mode[0] = '2'
 
-
     # 说明
     def explain():
         showinfo(title="ゲームの説明", message="キーボードのWASDキーを使って、子供を操作して、箱を終点まで押してください")
-
 
     # 重开
     def re():
@@ -457,7 +451,6 @@ def box(current_theme,uid):
         if current_mode[0] == "0":
             w_low()
 
-
     # 清除分数
     def unregister():
         handle = open(os.path.join(os.path.dirname(__file__) + '/saves/highscore.txt'), 'w+')
@@ -467,12 +460,36 @@ def box(current_theme,uid):
         label_2.config(text="high score:0")
         label_1.config(text="current score:0")
 
-
     # 注册最高分
     def regist():
-        pass
-        #TODO: 上传数据库
+        # 写入本地
+        handle = open(os.path.join(os.path.dirname(__file__) + '/saves/highscore.txt'), 'w+')
+        handle.write(str(score[1]))
+        handle.close()
 
+        import pymysql
+        import datetime
+        dt = datetime.datetime.now()  # get current time
+        dt_now = dt.strftime('%Y-%m-%d %H:%M:%S')
+        db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+        cursor = db.cursor()
+
+        sql = """select DID, UID from ID where UserName = '%s' and Dtype = %d""" % (uid, current_theme)
+        # TODO: 上传数据库
+        try:
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            if result:
+                sql = """INSERT INTO gamerecord(DID, \
+                      UID, EndTime, Score) \
+                      VALUES (%d, %d, '%s',%d )""" % \
+                      (result[0][0], result[0][1], dt_now, score[1])
+                cursor.execute(sql)
+                db.commit()
+        except Exception as e:
+            db.rollback()
+        finally:
+            db.close()
 
     # 比较分数
     def compare_score():
@@ -481,7 +498,6 @@ def box(current_theme,uid):
         else:
             score[1] = score[0]
             regist()
-
 
     # 菜单栏
     Menubar = Menu(x)
