@@ -2,12 +2,13 @@
 from tkinter import *
 import tkinter.messagebox as tm
 from tkinter.ttk import *
-def dlc():
+def dlc(uid):
     def confirmpurchase():
         contentchange=contentshowup.curselection()
         if contentchange != ():
             if tm.askyesno("ご確認ください",contentchange+"の購入を確認しますか？")==1:
                tm.showinfo("メッセージ",contentchange+"購入成功！")
+
                ########################contentchange写入数据库
                 #购买后,相关记录变更
 
