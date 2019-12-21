@@ -46,7 +46,7 @@ def cas_regsvc():
 
 
 
-        #nickname_repeat_flag ==1说明参考数据库昵称定义重复\
+        #nickname_repeat_flag ==1说明数据库用户名定义重复\
         #nickname_repeat_flag = 1
 
         if nickname_repeat_flag == 1:

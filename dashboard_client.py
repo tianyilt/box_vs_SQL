@@ -9,7 +9,6 @@ def dbc(uid):
     def purchase():
         dlc_pcs_svc.dlc()
     def refreshticket():
-        pass
         #########################################拉取数据库视图
         """
         前提:有个视图
@@ -17,6 +16,20 @@ def dbc(uid):
         全局高分视图
         return 
         """
+        # import pymysql
+        # db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+        # cursor = db.cursor()
+        #
+        # sql = """select PassWord from login where UserName ='%s' """ % (inputusrname)
+        #
+        # try:
+        #     cursor.execute(sql)  # 执行sql语句
+        #
+        # except Exception as e:
+        #     db.rollback()
+        #
+        # finally:
+        #     db.close()
 
 
     def deletecurrent():
@@ -26,7 +39,6 @@ def dbc(uid):
                 myshowup.delete(myshowup.curselection())
                 #######################################################################################从数据库删除datachange
                 #数据库中也删除dashboard记录
-
 
 
 
