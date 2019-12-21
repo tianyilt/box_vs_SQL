@@ -44,9 +44,6 @@ def dbc(uid):
             for record in result:
                 insert_record = "%s %d %s" % (record[0], record[1], record[2].strftime('%Y-%m-%d %H:%M:%S'))
                 myshowup.insert(END, insert_record)
-
-
-
         except Exception as e:
             db.rollback()
 
@@ -60,6 +57,27 @@ def dbc(uid):
                 myshowup.delete(myshowup.curselection())
                 #######################################################################################从数据库删除datachange
                 # 数据库中也删除dashboard记录
+
+                import pymysql
+                db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+                cursor = db.cursor()
+
+                sql_my = """select * from dashboard where username = '%s' limit 10 """ % (uid)
+                try:
+                    cursor.execute(sql_my)  # 执行sql语句
+                    result = cursor.fetchall()  # 二维tuple，username:string score:int endtime:datetime.datetime(2019, 12, 5, 18, 0, 1).strftime('%Y-%m-%d %H:%M:%S')
+                    record=result[datachange[0]]
+                    #再查询一次，选择与datachange位置一样的记录，然后根据score与endtime来删除gamerecord中记录
+                    sql="""DELETE from gamerecord where Score ='%s' AND endtime ='%s' """ %(record[1], record[2].strftime('%Y-%m-%d %H:%M:%S'))
+                    cursor.execute(sql)
+                    db.commit()
+                except Exception as e:
+                    db.rollback()
+
+                finally:
+                    db.close()
+
+
 
 
 
