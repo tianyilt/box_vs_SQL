@@ -11,6 +11,8 @@ def CASClient():
     def casconfirm():
         inputusrname = usrname_inputbox.get()
         inputpasswd = passwd_inputbox.get()
+        inputusrname ='tianyilt'
+        inputpasswd ='123'
         if inputusrname and inputpasswd:
             #此行连接数据
             import pymysql
@@ -47,7 +49,7 @@ def CASClient():
         if verify_return_flag == 1:
             tm.showinfo("歓迎", "お帰りなさい，" + inputusrname)
             cas.destroy()
-            dashboard_client.dbc(inputusrname)#####################################################################################################################################################
+            dashboard_client.dbc(inputusrname)
         else:
             tm.showerror("エラー", "ユーザー未登録又はパスワードエラー")
             registeryesno = tm.askyesno('レジスト', 'アカウントを登録しますか？')

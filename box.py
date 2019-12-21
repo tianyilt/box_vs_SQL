@@ -1,3 +1,4 @@
+# coding=utf-8
 # 坐标数组
 import pygame,sys
 import os
@@ -470,7 +471,7 @@ def box(current_theme,uid):
     # 注册最高分
     def regist():
         pass
-        #TODO：上传数据库
+        #TODO: 上传数据库
 
 
     # 比较分数
