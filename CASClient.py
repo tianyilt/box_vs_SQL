@@ -8,14 +8,11 @@ def CASClient():
         cas.destroy()
     # 验证输入账户和CAS数据库是否匹配
 
-
-
-
     def casconfirm():
         inputusrname = usrname_inputbox.get()
         inputpasswd = passwd_inputbox.get()
         if inputusrname and inputpasswd:
-        #此行连接数据
+            #此行连接数据
             import pymysql
             db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
             cursor = db.cursor()
@@ -28,26 +25,24 @@ def CASClient():
                 cursor.execute(sql)  # 执行sql语句
                 results = cursor.fetchall()  # 获取查询的所有记录
                 # 返回值是一个元组的形式
-                # print(type(results))
                 if results:
                     if results[0][0] == inputpasswd:
                         # 表示登陆成功
                         verify_return_flag = 1
-                        # print("sucessful")
-
                     else:
-                        verify_return_flag = 0
-
-
+                        verify_return_flag = 0#密码不匹配
                 else:
-                    verify_return_flag = 0
+                    verify_return_flag = 0#用户名不存在
             except Exception as e:
                 db.rollback()
-        #verify_return_flag ==1则参考数据库验证通过,先看username有没有,没有返回0,有的话,看password是否符合
+
+            finally:
+                db.close()
         else:
-            verify_return_flag = 0
+            verify_return_flag = 0#输入为空
 
 
+        #verify_return_flag ==1则参考数据库验证通过,先看username有没有,没有返回0,有的话,看password是否符合
         #verify_return_flag = 1
         if verify_return_flag == 1:
             tm.showinfo("歓迎", "お帰りなさい，" + inputusrname)
