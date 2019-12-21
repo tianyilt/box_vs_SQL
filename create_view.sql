@@ -1,8 +1,10 @@
+DROP view IF EXISTS `dlcbuy`;
 CREATE VIEW dlcbuy
 as
-SELECT   UID, Dtype, Date
-FROM      dlc
-ORDER BY UID;
+SELECT   UserName, Dtype, Date
+FROM      dlc cross join login
+where dlc.uid=login.uid
+ORDER BY dlc.UID;
 
 CREATE VIEW dashboard
 as
