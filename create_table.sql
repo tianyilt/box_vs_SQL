@@ -10,41 +10,63 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2019-12-19 16:33:32
+Date: 2019-12-21 09:53:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
+-- ----------------------------
+-- Table structure for `dlc`
+-- ----------------------------
+DROP TABLE IF EXISTS `dlc`;
+CREATE TABLE `dlc` (
+  `DID` int(10) NOT NULL,
+  `Dtype` int(10) NOT NULL,
+  `UID` int(10) NOT NULL,
+  `money` int(10) NOT NULL,
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`DID`),
+  KEY `dlcforeignUID` (`UID`),
+  CONSTRAINT `dlcforeignUID` FOREIGN KEY (`UID`) REFERENCES `login` (`UID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- ----------------------------
+-- Records of dlc
+-- ----------------------------
 
-create table login(
-UID int(10) not null primary key,
-UserName varchar(55) not null,
-PassWord varchar(55) not null,
-NickName VARCHAR(55) not null
-);
+-- ----------------------------
+-- Table structure for `gamerecord`
+-- ----------------------------
+DROP TABLE IF EXISTS `gamerecord`;
+CREATE TABLE `gamerecord` (
+  `GID` int(10) NOT NULL,
+  `DID` int(10) NOT NULL,
+  `UID` int(10) NOT NULL,
+  `EndTime` datetime DEFAULT NULL,
+  `Score` int(10) DEFAULT NULL,
+  PRIMARY KEY (`GID`),
+  KEY `loginforeignUID` (`UID`),
+  KEY `loginforeignDID` (`DID`),
+  CONSTRAINT `loginforeignDID` FOREIGN KEY (`DID`) REFERENCES `dlc` (`DID`),
+  CONSTRAINT `loginforeignUID` FOREIGN KEY (`UID`) REFERENCES `login` (`UID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table gamerecord(
-GID int(10) not null primary key,
-DID int(10) not null,
-UID int(10) not null,
-EndTime DATETIME,
-Score int(10)
-);
+-- ----------------------------
+-- Records of gamerecord
+-- ----------------------------
 
-create table dlc(
-DID int(10) not null primary key,
-UID int(10) not null,
-money int(10) not null,
-date DATETIME
-);
+-- ----------------------------
+-- Table structure for `login`
+-- ----------------------------
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE `login` (
+  `UID` int(10) NOT NULL,
+  `UserName` varchar(55) NOT NULL,
+  `PassWord` varchar(55) NOT NULL,
+  `NickName` varchar(55) NOT NULL,
+  PRIMARY KEY (`UID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-
-/*set foreign key*/
-ALTER TABLE gamerecord ADD CONSTRAINT loginforeignUID
-FOREIGN KEY(UID) REFERENCES login(UID);
-ALTER TABLE gamerecord ADD CONSTRAINT loginforeignDID
-FOREIGN KEY(DID) REFERENCES dlc(DID);
-ALTER TABLE dlc ADD CONSTRAINT dlcforeignUID
-FOREIGN KEY(UID) REFERENCES login(UID);
+-- ----------------------------
+-- Records of login
+-- ----------------------------
