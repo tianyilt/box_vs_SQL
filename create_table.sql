@@ -70,3 +70,6 @@ CREATE TABLE `login` (
 -- ----------------------------
 -- Records of login
 -- ----------------------------
+alter TABLE dlc drop foreign key dlcforeignUID;
+alter TABLE gamerecord drop foreign key loginforeignDID;
+alter TABLE gamerecord drop foreign key loginforeignUID;

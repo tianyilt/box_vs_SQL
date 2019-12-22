@@ -17,7 +17,7 @@ insert into login values
 (1,'tianyilt','123','mdzz'),
 (2,'alpha','123','md'),
 (3,'beta','123','mdz');
-
+INSERT INTO login(UID, UserName, PassWord, NickName) VALUES ('%d','%s', '%s',  %s)
 
 insert into dlc values
 (1,1,1,20,'2019-12-03 18:00:01'),

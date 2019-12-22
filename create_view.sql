@@ -12,10 +12,46 @@ ORDER BY dlc.UID;
 DROP view IF EXISTS `dashboard`;
 CREATE VIEW dashboard
 as
-SELECT   UserName, Score, EndTime
-FROM      gamerecord cross join login
-where gamerecord.UID = login.UID
-ORDER BY SCORE DESC;
+SELECT   login.UserName, B.Score, B.EndTime
+FROM      gamerecord AS B CROSS JOIN
+                    (SELECT   A.UID, MAX(A.Score) AS Ascore
+                     FROM      gamerecord AS A
+                     GROUP BY UID) AS A2 CROSS JOIN
+                login
+WHERE   (A2.Ascore = B.Score) AND (A2.UID = B.UID) AND (login.UID = B.UID)
+ORDER BY B.Score DESC
+
+
+
+SELECT login.UserName,B.Score,B.EndTime
+    from gamerecord B, (select A.UID,MAX(A.Score) AS Ascore
+from gamerecord A
+group by UID) A2, login
+WHERE A2.Ascore=B.Score AND A2.UID = B.UID AND login.UID=B.UID
+ORDER BY B.Score DESC;
+
+SELECT   login.UserName, B.Score, B.EndTime
+FROM      gamerecord AS B CROSS JOIN
+                    (SELECT   A.UID, MAX(A.Score) AS Ascore
+                     FROM      gamerecord AS A
+                     GROUP BY UID) AS A2 CROSS JOIN
+                login
+WHERE   (A2.Ascore = B.Score) AND (A2.UID = B.UID) AND (login.UID = B.UID)
+ORDER BY B.Score DESC
+
+select A.UID,MAX(A.Score) AS Ascore
+from gamerecord A
+group by UID
+
+
+
+select A.UID, A.Score, A.EndTime
+from gamerecord A,gamerecord B
+WHERE A.Score=B.Score;
+
+
+
+
 
 DROP view IF EXISTS `ID`;
 CREATE VIEW ID
