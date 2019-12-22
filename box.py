@@ -475,7 +475,7 @@ def box(current_theme, uid):
         cursor = db.cursor()
 
         sql = """select DID, UID from ID where UserName = '%s' and Dtype = %d""" % (uid, current_theme)
-        # TODO: 上传数据库
+
         try:
             cursor.execute(sql)
             result = cursor.fetchall()
@@ -498,6 +498,7 @@ def box(current_theme, uid):
         else:
             score[1] = score[0]
             regist()
+
 
     # 菜单栏
     Menubar = Menu(x)

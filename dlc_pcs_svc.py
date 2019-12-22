@@ -61,7 +61,7 @@ def dlc(uid):
         cursor = db.cursor()
 
         # sql = """SELECT dlc.Dtype FROM login CROSS JOIN dlc WHERE (login.uid = dlc.UID) AND (login.username = '%s')""" % (uid)
-        sql = """SELECT Dtype FROM dlcbuy WHERE username = '%s')""" % (uid)
+        sql = """SELECT Dtype FROM dlcbuy WHERE username = '%s'""" % (uid)
 
         try:
             cursor.execute(sql)  # 执行sql语句

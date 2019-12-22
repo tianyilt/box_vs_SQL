@@ -1,13 +1,16 @@
+# coding=utf-8
 from tkinter import *
 import tkinter.messagebox as tm
+
+
 def cas_regsvc():
     def regsvcquit():
         regsvc.destroy()
 
     def regsvcconfirm():
-        inputusrname=usrname_inputbox.get()
-        inputpasswd=passwd_inputbox.get()
-        inputnkname=nkname_inputbox.get()
+        inputusrname = usrname_inputbox.get()
+        inputpasswd = passwd_inputbox.get()
+        inputnkname = nkname_inputbox.get()
 
         if inputusrname and inputpasswd and inputnkname:
             import pymysql
@@ -43,18 +46,44 @@ def cas_regsvc():
         else:
             nickname_repeat_flag = 0
 
-
-
-
-        #nickname_repeat_flag ==1说明数据库用户名定义重复\
-        #nickname_repeat_flag = 1
+        # nickname_repeat_flag ==1说明数据库用户名定义重复\
+        # nickname_repeat_flag = 1
 
         if nickname_repeat_flag == 1:
             tm.showwarning("ご注意ください", "ニックネーム既に存在しました、もう一度付けてください")
         else:
+            # 免费dlc，点击就送
+
+            import pymysql
+            import datetime
+            dt = datetime.datetime.now()  # get current time
+            dt_now = dt.strftime('%Y-%m-%d %H:%M:%S')
+
+            db = pymysql.connect('182.254.217.138', 'ZNDY', 'ZNDY@ecust123', 'box_vs_sql', charset="utf8")
+            cursor = db.cursor()
+            sql1 = """select UID from login where UserName ='%s' """ % (inputnkname)
+
+            try:
+                cursor.execute(sql1)  # 执行sql语句
+                result = cursor.fetchall()
+                if result:
+                    sql2 = """INSERT INTO dlc(Dtype, UID, \
+                          money, date) \
+                          VALUES ('%s', '%s',%d , '%s')""" % \
+                           (0, result[0][0], 0, dt_now)
+                    cursor.execute(sql2)
+                    db.commit()
+
+            except Exception as e:
+                db.rollback()
+
+            finally:
+                db.close()
+
             tm.showinfo("情報", "登録成功！")
             regsvcquit()
-#CASregsvc main framework
+
+    # CASregsvc main framework
     regsvc = Tk()
     regsvc.title("レジスト")
     regsvc.geometry("400x200")
@@ -77,4 +106,3 @@ def cas_regsvc():
     cancel_btn.place(x=200, y=133)
     c.pack()
     regsvc.mainloop()
-

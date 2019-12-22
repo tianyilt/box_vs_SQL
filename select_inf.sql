@@ -21,3 +21,5 @@ insert into dlc values
 (1,1,1,20,'2019-12-03 18:00:01');
 
 show processlist ;
+
+SELECT Dtype FROM dlcbuy WHERE username = '2'

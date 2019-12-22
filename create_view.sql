@@ -20,9 +20,19 @@ ORDER BY SCORE DESC;
 DROP view IF EXISTS `ID`;
 CREATE VIEW ID
 as
-SELECT   login.UserName, gamerecord.DID, gamerecord.UID, dlc.Dtype
-FROM (gamerecord join login on gamerecord.UID = login.UID)
-    join dlc on gamerecord.uid = dlc.UID;
+SELECT   login.UserName, login.UID, dlc.DID, dlc.Dtype
+FROM login cross join dlc on dlc.UID = login.UID;
+
+SELECT   login.UserName, dlc.DID, dlc.Dtype
+FROM (login cross join dlc on dlc.UID = login.UID)
+    cross join gamerecord on gamerecord.UID=login.UID
+
+SELECT   login.UserName, login.UID, dlc.DID, dlc.Dtype
+FROM login cross join dlc on dlc.UID = login.UID;
+
+SELECT   gamerecord.DID, gamerecord.UID
+FROM gamerecord  right join dlc on gamerecord.uid = dlc.UID
+
 
 
 
