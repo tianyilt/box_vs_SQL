@@ -15,7 +15,8 @@ def dbc(uid):
     def refreshticket():
         worldshowup.delete(0, END)
         myshowup.delete(0, END)
-
+        worldshowup.insert(END,"        時間　　  点数　　プレーヤー")
+        myshowup.insert(END, "     時間　  　点数　プレーヤー")
         # worldshowup.insert(END,"Athrun_Zala 10086")
         # myshowup.insert(END,"Athrun_Zala 2019-01-20 10086")
         #########################################拉取数据库视图
@@ -36,13 +37,13 @@ def dbc(uid):
             cursor.execute(sql_world)  # 执行sql语句
             result = cursor.fetchall()  # 二维tuple，username:string score:int endtime:datetime.datetime(2019, 12, 5, 18, 0, 1).strftime('%Y-%m-%d %H:%M:%S')
             for record in result:
-                insert_record = "%s %d %s" % (record[0], record[1], record[2].strftime('%Y-%m-%d %H:%M:%S'))
+                insert_record = "%s %d %s" % (record[2].strftime('%Y-%m-%d')+"    ", record[1],"        "+record[0])
                 worldshowup.insert(END, insert_record)
 
             cursor.execute(sql_my)  # 执行sql语句
             result = cursor.fetchall()  # 二维tuple，username:string score:int endtime:datetime.datetime(2019, 12, 5, 18, 0, 1).strftime('%Y-%m-%d %H:%M:%S')
             for record in result:
-                insert_record = "%s %d %s" % (record[0], record[1], record[2].strftime('%Y-%m-%d %H:%M:%S'))
+                insert_record = "%s %d %s" % (record[2].strftime('%Y-%m-%d')+"    ", record[1] ,"   "+record[0])
                 myshowup.insert(END, insert_record)
         except Exception as e:
             db.rollback()
@@ -66,7 +67,7 @@ def dbc(uid):
                 try:
                     cursor.execute(sql_my)  # 执行sql语句
                     result = cursor.fetchall()  # 二维tuple，username:string score:int endtime:datetime.datetime(2019, 12, 5, 18, 0, 1).strftime('%Y-%m-%d %H:%M:%S')
-                    record=result[datachange[0]]
+                    record=result[datachange[0]-1]
                     #再查询一次，选择与datachange位置一样的记录，然后根据score与endtime来删除gamerecord中记录
                     sql="""DELETE from gamerecord where Score ='%s' AND endtime ='%s' """ %(record[1], record[2].strftime('%Y-%m-%d %H:%M:%S'))
                     cursor.execute(sql)
