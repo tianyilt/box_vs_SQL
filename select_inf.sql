@@ -1,3 +1,4 @@
+/*这里把操作数据库用到的命令都列在这里*/
 select * from dlcbuy;
 select * from dlc;
 select * from login;
