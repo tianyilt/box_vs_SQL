@@ -10,8 +10,8 @@ def dlc(uid):
         contentchange = contentshowup.curselection()  # tuple,tuple[0]is dlc code
         if contentchange != ():
             dlc_dic = {0: 'free', 1: 'conquest', 2: 'european', 3: 'future', 4: 'midevil', 5: 'woody'}  # 提醒自己还没做
-            if tm.askyesno("ご確認ください", dlc_dic[contentchange[0]] + "の購入を確認しますか？") == 1:
-                tm.showinfo("メッセージ", dlc_dic[contentchange[0]] + "購入成功！")
+            if tm.askyesno("ご確認ください", dlc_dic[contentchange[0]-1] + "の購入を確認しますか？") == 1:
+                tm.showinfo("メッセージ", dlc_dic[contentchange[0]-1] + "購入成功！")
 
                 ########################contentchange写入数据库
                 # 购买后,相关记录变更
@@ -32,7 +32,7 @@ def dlc(uid):
                         sql2 = """INSERT INTO dlc(Dtype, UID, \
                               money, date) \
                               VALUES ('%s', '%s',%d , '%s')""" % \
-                               (contentchange[0], result[0][0], 6, dt_now)
+                               ((contentchange[0]-1), result[0][0], 6, dt_now)
                         cursor.execute(sql2)
                         db.commit()
 
@@ -53,7 +53,7 @@ def dlc(uid):
         """
         contentshowup.delete(0, END)
         # ['free', 'conquest', 'european', 'future', 'midevil', 'woody']是主题
-        dlc_purchase_state = {0: '未购买', 1: '已拥有'}
+        dlc_purchase_state = {0: '買いません', 1: '買いました'}
         dlc_purchase_flag_list = [1, 0, 0, 0, 0, 0]  # 第i个元素表示第i个dlc购买状态，0没买1买了
         #################################拉取数据库视图
         import pymysql
@@ -77,7 +77,7 @@ def dlc(uid):
             db.close()
 
         # dlc视图
-
+        contentshowup.insert(END,"テーマ　状態")
         contentshowup.insert(END, "free\t %s" % (dlc_purchase_state[dlc_purchase_flag_list[0]]))
         contentshowup.insert(END, "conquest\t %s" % (dlc_purchase_state[dlc_purchase_flag_list[1]]))
         contentshowup.insert(END, "european\t %s" % (dlc_purchase_state[dlc_purchase_flag_list[2]]))

@@ -13,7 +13,7 @@ def box(current_theme, uid):
     global bg_img, obs_img
     pygame.init()
     pygame.mixer.init()
-    pygame.mixer.music.load("sound/HAIKARA.mp3")
+    pygame.mixer.music.load("sound/HAIKARA_02.mp3")
 
     pygame.mixer.music.play(loops=-1, start=0.0)
     host_lo = [0, 0]
@@ -57,9 +57,9 @@ def box(current_theme, uid):
     c = Canvas(x, width=350, height=350)
     c.pack()
     # 初始化标签内容
-    label_1 = Label(x, text="current score:%d" % score[0], font="10", width=40, height=1, fg="black")
+    label_1 = Label(x, text="現在得点:%d" % score[0], font="10", width=40, height=1, fg="black")
     label_1.pack()
-    label_2 = Label(x, text="High score:%d" % score[1], font="10", width=40, height=1, fg="black")
+    label_2 = Label(x, text="本機の最高得点:%d" % score[1], font="10", width=40, height=1, fg="black")
     label_2.pack()
     # 贴图
     if current_theme == 0:
@@ -115,7 +115,7 @@ def box(current_theme, uid):
     # 五个基本函数
     def scores():
         label_1.config(text="現在得点:%d" % score[0])
-        label_2.config(text="最高得点:%d" % score[1])
+        label_2.config(text="本機の最高得点:%d" % score[1])
 
     def erased(i, j):
         t = c.create_image(32 * i + 16, 32 * j + 16, image=bg_img)

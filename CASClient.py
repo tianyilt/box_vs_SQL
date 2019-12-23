@@ -43,8 +43,6 @@ def CASClient():
                 db.close()
         else:
             verify_return_flag = 0#输入为空
-
-        verify_return_flag = 1
         #verify_return_flag ==1则参考数据库验证通过,先看username有没有,没有返回0,有的话,看password是否符合
         #verify_return_flag = 1
         if verify_return_flag == 1:
